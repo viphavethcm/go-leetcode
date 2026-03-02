@@ -1,0 +1,25 @@
+function BinarySearch(arr, target):
+    // 1. Khởi tạo 2 con trỏ ở hai đầu mảng
+    left = 0
+    right = length(arr) - 1
+
+    // 2. Điều kiện dừng: Khi left vượt qua right
+    while left <= right:
+
+        // 3. Tính toán vị trí ở giữa (Tuyệt chiêu chống tràn số - Overflow)
+        mid = left + (right - left) / 2
+
+        // 4. Kiểm tra xem đã tìm thấy chưa
+        if arr[mid] == target:
+            return mid  // Thành công: Trả về vị trí (index)
+
+        // 5. Nếu target lớn hơn phần tử ở giữa -> Bỏ đi nửa bên trái
+        if arr[mid] < target:
+            left = mid + 1
+
+        // 6. Nếu target nhỏ hơn phần tử ở giữa -> Bỏ đi nửa bên phải
+        else:
+            right = mid - 1
+
+    // 7. Vòng lặp kết thúc mà không tìm thấy
+    return -1
