@@ -1,0 +1,45 @@
+1. Dấu hiệu nhận biết (Keywords & Patterns)
+"Lính canh" xài khi đề bài có các đặc điểm sau:
+
+Xử lý theo cụm (Grouping/Chunks): Các phần tử giống nhau, liên tiếp nhau được gom thành một nhóm để tính toán.
+
+Keywords trong đề bài: Consecutive (Liên tiếp), Contiguous (Liền kề/Mạch), Compress (Nén), Run-length, Merge (Gộp).
+
+Logic "Chốt sổ" nằm ở sự chuyển giao (Transition): bắt đầu tính toán/lưu kết quả khi phần tử hiện tại
+khác với phần tử trước đó.
+
+Triệu chứng lúc code: Bạn code xong vòng lặp for, chạy test thử thì thấy mọi thứ đúng hết,
+ngoại trừ cụm cuối cùng bị bỏ sót. Bạn bắt buộc phải copy-paste lại cái khối lệnh xử lý chèn thêm một lần nữa
+ở ngay bên dưới vòng lặp for cực kỳ "dirty".
+
+VD:
+Đề bài: Cho một chuỗi ký tự. Hãy đếm số lượng các ký tự liên tiếp giống nhau và nén nó lại.
+
+Input: A A A B B C C
+
+Output mong muốn: A3 B2 C2
+
+func compressString(chars []string) string {
+    // 1. Cắm lính canh: Nhét một ký tự rỗng vào cuối mảng
+    chars = append(chars, " ")
+
+    res := ""
+    count := 1
+
+    // 2. Bắt đầu duyệt từ phần tử thứ 2
+    for i := 1; i < len(chars); i++ {
+        if chars[i] == chars[i-1] {
+            // Nếu giống thằng đứng trước, tăng biến đếm
+            count++
+        } else {
+            // KÍCH HOẠT: Khi đụng lính canh " ", nó chắc chắn KHÁC chữ "C"
+            // Nên cụm "C" cuối cùng sẽ bị ép chốt sổ tại đây!
+            res += chars[i-1] + strconv.Itoa(count)
+
+            // Reset đếm cho ký tự mới
+            count = 1
+        }
+    }
+
+    return res
+}
