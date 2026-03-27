@@ -1,0 +1,10 @@
+Khi đọc đến số x, ta coi x là một cái địa chỉ nhà (index x-1).
+Ta chạy đến cái nhà đó và đánh dấu âm giá trị bên trong để báo rằng "Nhà này đã có người thăm!".
+
+nums[abs(nums[i])] *= -1
+VD: nums = [2, 2, 1, 4]
+
+Đọc số 2 (nhà số 1): Tới index 1, đổi số 2 thành -2 -> Mảng thành [2, -2, 1, 4].
+Đọc số 2 tiếp: Chạy tới index 1, thấy nó bị âm sẵn rồi! -> Bắt quả tang thằng 2 này chính là Số Trùng!
+Đọc số 1 (nhà số 0): Tới index 0, đổi 2 thành -2 -> Mảng thành [-2, -2, 1, 4].
+Đọc số 4 (nhà số 3): Tới index 3, đổi 4 thành -4 -> Mảng thành [-2, -2, 1, -4].
