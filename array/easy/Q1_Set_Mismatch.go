@@ -1,12 +1,14 @@
 package main
 
+import "go-leetcode/common"
+
 func findErrorNums(nums []int) []int {
 	missing := 0
 	dup := 0
 	for i := 0; i < len(nums); i++ {
-		j := abs(nums[i]) - 1
+		j := common.Abs(nums[i]) - 1
 		if nums[j] < 0 {
-			dup = abs(nums[i])
+			dup = common.Abs(nums[i])
 			continue
 		}
 		nums[j] *= -1
@@ -17,12 +19,4 @@ func findErrorNums(nums []int) []int {
 		}
 	}
 	return []int{dup, missing}
-}
-
-// 3, 2, 3, 4, 6, 5
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }
