@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-leetcode/common"
 )
 
 func main() {
@@ -11,7 +12,7 @@ func main() {
 func findDisappearedNumbers(nums []int) []int {
 	rs := make([]int, 0, len(nums))
 	for i := 0; i < len(nums); i++ {
-		j := abs(nums[i]) - 1
+		j := common.Abs(nums[i]) - 1
 		if nums[j] < 0 {
 			continue
 		}
