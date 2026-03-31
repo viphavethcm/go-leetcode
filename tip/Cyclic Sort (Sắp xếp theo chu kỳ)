@@ -1,0 +1,49 @@
+// CYCLIC SORT PATTERN (Sắp xếp theo chu kỳ)
+// Mục tiêu: Biến mảng thành trạng thái hoàn hảo: nums[i] == i + 1
+// Ví dụ mảng chuẩn: [1, 2, 3, 4, 5] (Số 1 ở index 0, Số 2 ở index 1...)
+
+func cyclicSortTemplate(nums []int) {
+    i := 0
+    n := len(nums)
+
+    // Dùng vòng lặp while (trong Go là for i < n)
+    // Tại sao không dùng for i:=0; i<n; i++ ?
+    // Vì ta chỉ tăng i LÊN khi và chỉ khi con số tại i ĐÃ ĐỨNG ĐÚNG CHỖ.
+    for i < n {
+        // 1. Xác định "Nhà đích" của con số hiện tại
+        // Nếu mảng từ 1 đến n -> index đúng là nums[i] - 1
+        // (Nếu đề cho mảng từ 0 đến n -> index đúng là nums[i])
+        correctIdx := nums[i] - 1
+
+        // 2. Điều kiện SWAP (Hoán đổi) - Gồm 3 chốt chặn:
+        // - Chốt 1 & 2: Số hiện tại phải nằm trong giới hạn cho phép (để không bị out of bounds)
+        // - Chốt 3: Thằng đang đứng ở "nhà đích" có bị sai không? (nums[i] != nums[correctIdx])
+        if nums[i] > 0 && nums[i] <= n && nums[i] != nums[correctIdx] {
+            
+            // Nếu thỏa mãn -> Lôi cổ nó về đúng nhà, và bế thằng ở nhà đó về vị trí i
+            // LƯU Ý: Chỗ này KHÔNG tăng i. Vì thằng mới bị bế về vị trí i có thể vẫn sai, 
+            // vòng lặp tiếp theo sẽ tiếp tục xử lý nó!
+            nums[i], nums[correctIdx] = nums[correctIdx], nums[i]
+            
+        } else {
+            // 3. Khi nào thì đi tiếp (i++)?
+            // - Khi số đã đứng đúng nhà (nums[i] == correctIdx + 1)
+            // - Hoặc số nằm ngoài vùng phủ sóng (vd: số âm, số > n)
+            // - Hoặc phát hiện TRÙNG LẶP (số cần quăng về đã có 1 bản sao nằm sẵn ở đó rồi)
+            i++
+        }
+    }
+
+    // ---------------------------------------------------------
+    // BƯỚC CHỐT SỔ (Sau khi bão Swap đi qua)
+    // Lúc này mảng đã được xếp gọn gàng. Ta lướt qua 1 vòng để nhặt kết quả.
+    
+    // Ví dụ: Tìm số bị thiếu (Missing Number)
+    /*
+    for i := 0; i < n; i++ {
+        if nums[i] != i + 1 {
+            return i + 1 // Thằng i+1 bị thiếu do có kẻ khác chiếm chỗ!
+        }
+    }
+    */
+}
