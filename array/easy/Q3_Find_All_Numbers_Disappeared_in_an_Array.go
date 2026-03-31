@@ -2,30 +2,49 @@ package main
 
 import (
 	"fmt"
-	"go-leetcode/common"
 )
 
 func main() {
-	fmt.Println(findDisappearedNumbers([]int{4, 3, 2, 7, 8, 2, 3, 1}))
+	fmt.Println(findDisappearedNumbers([]int{4, 3, 2, 7, 7, 2, 3, 1}))
 }
 
+// Cyclic Sort
 func findDisappearedNumbers(nums []int) []int {
+	i := 0
+	n := len(nums)
 	rs := make([]int, 0, len(nums))
-	for i := 0; i < len(nums); i++ {
-		j := common.Abs(nums[i]) - 1
-		if nums[j] < 0 {
-			continue
+	for i < n {
+		rightIdx := nums[i] - 1
+		if nums[i] > 0 && nums[i] <= n && nums[rightIdx] != nums[i] {
+			nums[i], nums[rightIdx] = nums[rightIdx], nums[i]
+		} else {
+			i++
 		}
-		nums[j] *= -1
 	}
-
-	for i := 0; i < len(nums); i++ {
-		if nums[i] > 0 {
-			missing := i + 1
-			rs = append(rs, missing)
+	for idx, num := range nums {
+		if num != idx+1 {
+			rs = append(rs, idx+1)
 		}
 	}
 	return rs
 }
 
-// 1,2,2,3,3,4,7,8
+// In-Place Index Mapping
+//func findDisappearedNumbers(nums []int) []int {
+//	rs := make([]int, 0, len(nums))
+//	for i := 0; i < len(nums); i++ {
+//		j := common.Abs(nums[i]) - 1
+//		if nums[j] < 0 {
+//			continue
+//		}
+//		nums[j] *= -1
+//	}
+//
+//	for i := 0; i < len(nums); i++ {
+//		if nums[i] > 0 {
+//			missing := i + 1
+//			rs = append(rs, missing)
+//		}
+//	}
+//	return rs
+//}
