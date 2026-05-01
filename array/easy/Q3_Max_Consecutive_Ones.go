@@ -1,12 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	fmt.Println(findMaxConsecutiveOnes([]int{1, 0, 1, 1, 0, 1}))
-}
+package array_easy
 
 func findMaxConsecutiveOnes(nums []int) int {
 	cnt := 0

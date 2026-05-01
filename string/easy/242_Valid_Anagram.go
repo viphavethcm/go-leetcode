@@ -1,4 +1,4 @@
-package main
+package string_easy
 
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {

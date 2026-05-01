@@ -1,4 +1,4 @@
-package main
+package array_easy
 
 func majorityElement(nums []int) int {
 	cnt := 0

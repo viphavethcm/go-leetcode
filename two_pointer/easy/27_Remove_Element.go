@@ -1,12 +1,8 @@
-package main
+package two_pointer_easy
 
 /*
 https://leetcode.com/problems/remove-element/description
 */
-
-func main() {
-
-}
 
 func removeElement(nums []int, val int) int {
 	i := 0

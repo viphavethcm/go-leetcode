@@ -1,14 +1,8 @@
-package main
-
-import "fmt"
+package prefix_sum_easy
 
 /*
-https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description
+https://leetcode.com/problems/find-the-middle-index-in-array/description
 */
-func main() {
-	nums := []int{2, 3, -1, 8, 4}
-	fmt.Println(findMiddleIndex(nums))
-}
 
 func findMiddleIndex(nums []int) int {
 	sum, leftSum := 0, 0

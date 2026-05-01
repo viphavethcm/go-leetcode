@@ -1,14 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	arr := []int{1, 3, 5, 6}
-	target := 2
-	fmt.Println(searchInsert(arr, target))
-}
+package array_easy
 
 // nums = [1,3,5,6], target = 7
 // nums = [1,3,5,6], target = 2

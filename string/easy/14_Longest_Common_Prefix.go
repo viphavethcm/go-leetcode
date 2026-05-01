@@ -1,4 +1,4 @@
-package main
+package string_easy
 
 import "strings"
 

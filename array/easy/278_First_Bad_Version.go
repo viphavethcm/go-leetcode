@@ -1,10 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Println(firstBadVersion(2))
-}
+package array_easy
 
 // 1,2,3,4,5,6,7,8,9,10
 func firstBadVersion(n int) int {

@@ -1,12 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	fmt.Println(smallerNumbersThanCurrent([]int{5, 0, 10, 0, 10, 6}))
-}
+package array_easy
 
 // DP
 //func smallerNumbersThanCurrent(nums []int) []int {

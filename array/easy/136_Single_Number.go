@@ -1,13 +1,8 @@
-package main
+package array_easy
 
 import (
-	"fmt"
 	"sort"
 )
-
-func main() {
-	fmt.Println(singleNumber([]int{4, 1, 2, 1, 2}))
-}
 
 func singleNumber(nums []int) int {
 	sort.Ints(nums)

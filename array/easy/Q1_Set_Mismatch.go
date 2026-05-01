@@ -1,4 +1,4 @@
-package main
+package array_easy
 
 import "go-leetcode/common"
 

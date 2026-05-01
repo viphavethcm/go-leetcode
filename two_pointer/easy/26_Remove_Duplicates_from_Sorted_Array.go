@@ -1,11 +1,8 @@
-package main
+package two_pointer_easy
 
 /*
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/description
 */
-func main() {
-
-}
 
 func removeDuplicates(nums []int) int {
 	i := 1

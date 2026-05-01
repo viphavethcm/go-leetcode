@@ -1,14 +1,8 @@
-package main
-
-import "fmt"
+package dp_medium
 
 /*
 https://leetcode.com/problems/guess-number-higher-or-lower-ii/editorial/
 */
-
-func main() {
-	fmt.Println(getMoneyAmount(10))
-}
 
 func getMoneyAmount(n int) int {
 	// Tạo bảng DP kích thước (n+2) x (n+2).

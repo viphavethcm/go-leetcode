@@ -1,13 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	nums := []int{2, 5, 1, 3, 4, 7}
-	for _, num := range shuffle(nums, 3) {
-		fmt.Println(num)
-	}
-}
+package array_easy
 
 func shuffle(nums []int, n int) []int {
 	res := make([]int, len(nums))
