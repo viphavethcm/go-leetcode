@@ -37,6 +37,14 @@ func (h *IntHeap) Pop() any {
 	return x
 }
 
+func (h *IntHeap) Peek() any {
+	return (*h)[0]
+}
+
+func (h *IntHeap) IsEmpty() bool {
+	return len(*h) == 0
+}
+
 // ---------------------------------------------------------
 // BƯỚC 2: HÀM LOGIC CHÍNH XỬ LÝ BÀI TOÁN
 // ---------------------------------------------------------
